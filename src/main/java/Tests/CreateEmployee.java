@@ -20,25 +20,22 @@ public class CreateEmployee {
     @Test
 
     public static void testCreateEmployee() throws IOException {
-       HttpResponse response = PostRequests.createEmployee();
+        HttpResponse response = PostRequests.createEmployee();
         int statusCode = response.getStatusLine().getStatusCode();
-        Assert.assertEquals(statusCode,200,"Status code is not 200");
-        //HttpEntity responseEntity = response.getEntity();
-        //String responseBody = EntityUtils.toString(responseEntity);
+        Assert.assertEquals(statusCode, 200, "Status code is not 200");
         String responseBody = ResponseReader.convertStreamToString(response.getEntity().getContent());
-        System.out.println("Response body: "+responseBody);
+        System.out.println("Response body: " + responseBody);
         Pattern pattern = Pattern.compile("\"id\":(\\d+)");
         Matcher matcher = pattern.matcher(responseBody);
-        if(matcher.find()){
+        if (matcher.find()) {
             id = matcher.group(1);
             System.out.println("ID = " + id);
-        }else{
+        } else {
             System.out.println("ID not found");
         }
-
     }
 
-    public static String getId(){
+    public static String getId() {
         return id;
     }
 }

@@ -1,8 +1,10 @@
 package api.endpoints;
+
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.HttpClients;
+
 import java.io.IOException;
 
 public class GetRequests {
@@ -15,7 +17,7 @@ public class GetRequests {
         HttpClient httpClient = HttpClients.createDefault();
         HttpResponse httpResponse = httpClient.execute(getEmployees);
 
-     return httpResponse;
+        return httpResponse;
     }
 }
 

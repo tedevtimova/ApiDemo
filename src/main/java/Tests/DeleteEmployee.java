@@ -14,7 +14,7 @@ public class DeleteEmployee {
     public static void testDeleteEmployee() throws IOException {
         HttpResponse httpResponse = DeleteRequests.deleteEmployee();
         int statusCode = httpResponse.getStatusLine().getStatusCode();
-        Assert.assertEquals(statusCode,200,"Status code is not 200");
+        Assert.assertEquals(statusCode, 200, "Status code is not 200");
         String responseBody = ResponseReader.convertStreamToString(httpResponse.getEntity().getContent());
         Assert.assertTrue(responseBody.contains("Successfully! Record has been deleted"));
     }
